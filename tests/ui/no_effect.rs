@@ -4,6 +4,7 @@
 #![allow(path_statements)]
 #![allow(clippy::deref_addrof)]
 #![allow(clippy::redundant_field_names)]
+#![allow(clippy::empty_drop)]
 #![feature(untagged_unions)]
 
 struct Unit;

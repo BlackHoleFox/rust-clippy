@@ -65,17 +65,6 @@ LL | |     t[0]
 LL | | }
    | |_^
 
-error: empty drop implementation
-  --> $DIR/could_be_const.rs:59:5
-   |
-LL | /     impl Drop for A {
-LL | |         fn drop(&mut self) {}
-LL | |     }
-   | |_____^
-   |
-   = note: `#[deny(clippy::empty_drop)]` on by default
-   = help: try removing this impl
-
 error: this could be a `const fn`
   --> $DIR/could_be_const.rs:65:9
    |
@@ -92,5 +81,5 @@ LL | |         byte.is_ascii_digit();
 LL | |     }
    | |_____^
 
-error: aborting due to 11 previous errors
+error: aborting due to 10 previous errors
 
