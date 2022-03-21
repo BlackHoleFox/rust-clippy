@@ -7,6 +7,7 @@
 #![warn(clippy::missing_const_for_fn)]
 #![feature(start)]
 #![feature(custom_inner_attributes)]
+#![allow(clippy::empty_drop)]
 
 extern crate helper;
 
