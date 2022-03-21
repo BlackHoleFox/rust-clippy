@@ -1,4 +1,4 @@
-#![allow(unused)]
+#![allow(unused, clippy::empty_drop)]
 #![warn(clippy::let_and_return)]
 
 fn test() -> i32 {
