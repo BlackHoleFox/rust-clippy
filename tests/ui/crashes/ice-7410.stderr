@@ -1,0 +1,13 @@
+error: empty drop implementation
+  --> $DIR/ice-7410.rs:14:1
+   |
+LL | / impl Drop for S {
+LL | |     fn drop(&mut self) {}
+LL | | }
+   | |_^
+   |
+   = note: `#[deny(clippy::empty_drop)]` on by default
+   = help: try removing this impl
+
+error: aborting due to previous error
+

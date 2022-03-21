@@ -1,3 +1,44 @@
+error: empty drop implementation
+  --> $DIR/no_effect.rs:19:1
+   |
+LL | / impl Drop for DropUnit {
+LL | |     fn drop(&mut self) {}
+LL | | }
+   | |_^
+   |
+   = note: `#[deny(clippy::empty_drop)]` on by default
+   = help: try removing this impl
+
+error: empty drop implementation
+  --> $DIR/no_effect.rs:25:1
+   |
+LL | / impl Drop for DropStruct {
+LL | |     fn drop(&mut self) {}
+LL | | }
+   | |_^
+   |
+   = help: try removing this impl
+
+error: empty drop implementation
+  --> $DIR/no_effect.rs:29:1
+   |
+LL | / impl Drop for DropTuple {
+LL | |     fn drop(&mut self) {}
+LL | | }
+   | |_^
+   |
+   = help: try removing this impl
+
+error: empty drop implementation
+  --> $DIR/no_effect.rs:36:1
+   |
+LL | / impl Drop for DropEnum {
+LL | |     fn drop(&mut self) {}
+LL | | }
+   | |_^
+   |
+   = help: try removing this impl
+
 error: statement with no effect
   --> $DIR/no_effect.rs:95:5
    |
@@ -182,5 +223,5 @@ error: binding to `_` prefixed variable with no side-effect
 LL |     let _cat = [2, 4, 6, 8][2];
    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-error: aborting due to 30 previous errors
+error: aborting due to 34 previous errors
 
