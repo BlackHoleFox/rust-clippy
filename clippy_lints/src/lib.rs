@@ -210,6 +210,7 @@ mod double_parens;
 mod drop_forget_ref;
 mod duration_subsec;
 mod else_if_without_else;
+mod empty_drop;
 mod empty_enum;
 mod empty_structs_with_brackets;
 mod entry;
@@ -882,6 +883,7 @@ pub fn register_plugins(store: &mut rustc_lint::LintStore, sess: &Session, conf:
     store.register_early_pass(|| Box::new(pub_use::PubUse));
     store.register_late_pass(|| Box::new(format_push_string::FormatPushString));
     store.register_late_pass(|| Box::new(bytes_count_to_len::BytesCountToLen));
+    store.register_late_pass(|| Box::new(empty_drop::EmptyDrop));
     // add lints here, do not remove this comment, it's used in `new_lint`
 }
 
