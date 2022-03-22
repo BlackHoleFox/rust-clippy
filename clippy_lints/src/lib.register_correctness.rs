@@ -23,7 +23,6 @@ store.register_group(true, "clippy::correctness", Some("clippy_correctness"), ve
     LintId::of(drop_forget_ref::FORGET_COPY),
     LintId::of(drop_forget_ref::FORGET_REF),
     LintId::of(drop_forget_ref::UNDROPPED_MANUALLY_DROPS),
-    LintId::of(empty_drop::EMPTY_DROP),
     LintId::of(enum_clike::ENUM_CLIKE_UNPORTABLE_VARIANT),
     LintId::of(eq_op::EQ_OP),
     LintId::of(erasing_op::ERASING_OP),

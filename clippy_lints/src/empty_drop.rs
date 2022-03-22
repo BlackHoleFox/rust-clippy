@@ -26,7 +26,7 @@ declare_clippy_lint! {
     /// ```
     #[clippy::version = "1.61.0"]
     pub EMPTY_DROP,
-    correctness,
+    restriction,
     "empty `Drop` implementations"
 }
 declare_lint_pass!(EmptyDrop => [EMPTY_DROP]);
