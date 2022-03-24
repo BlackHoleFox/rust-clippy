@@ -1,7 +1,7 @@
 // run-rustfix
 // rustfix-only-machine-applicable
 
-#![allow(clippy::implicit_clone, clippy::empty_drop)]
+#![allow(clippy::implicit_clone)]
 use std::ffi::OsString;
 use std::path::Path;
 

@@ -6,7 +6,6 @@
 #![no_std]
 #![allow(clippy::if_same_then_else)]
 #![allow(clippy::redundant_pattern_matching)]
-#![allow(clippy::empty_drop)]
 
 use core::panic::PanicInfo;
 
