@@ -1,5 +1,4 @@
 use clippy_utils::diagnostics::span_lint_and_help;
-// use clippy_utils::ty::is_type_lang_item;
 use if_chain::if_chain;
 use rustc_hir::{Body, ExprKind, Impl, ImplItemKind, Item, ItemKind, Node};
 use rustc_lint::{LateContext, LateLintPass};
@@ -10,7 +9,7 @@ declare_clippy_lint! {
     /// Checks for empty `Drop` implementations.
     ///
     /// ### Why is this bad?
-    /// Empty `Drop` implementations do nothing except hurt code readability. They also prevent the type from being destructured.
+    /// Empty `Drop` implementations have no effect when dropping an instance of the type. They are most likely useless. However, an empty `Drop` implementation prevents a type from being destructured, which might be the intention behind adding the implementation as a marker. 
     ///
     /// ### Example
     /// ```rust

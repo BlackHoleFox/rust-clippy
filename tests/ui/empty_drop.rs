@@ -1,3 +1,4 @@
+// run-rustfix
 #![warn(clippy::empty_drop)]
 
 struct Foo;
