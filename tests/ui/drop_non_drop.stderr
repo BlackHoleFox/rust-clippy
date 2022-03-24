@@ -11,17 +11,6 @@ note: argument has type `main::Foo`
 LL |     drop(Foo);
    |          ^^^
 
-error: empty drop implementation
-  --> $DIR/drop_non_drop.rs:29:5
-   |
-LL | /     impl Drop for Bar {
-LL | |         fn drop(&mut self) {}
-LL | |     }
-   | |_____^
-   |
-   = note: `#[deny(clippy::empty_drop)]` on by default
-   = help: try removing this impl
-
 error: call to `std::mem::drop` with a value that does not implement `Drop`. Dropping such a type only extends its contained lifetimes
   --> $DIR/drop_non_drop.rs:37:5
    |
@@ -34,5 +23,5 @@ note: argument has type `main::Baz<main::Foo>`
 LL |     drop(Baz(Foo));
    |          ^^^^^^^^
 
-error: aborting due to 3 previous errors
+error: aborting due to 2 previous errors
 

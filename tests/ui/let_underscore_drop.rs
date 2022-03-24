@@ -1,9 +1,6 @@
 #![warn(clippy::let_underscore_drop)]
-<<<<<<< HEAD
 #![allow(clippy::let_unit_value)]
-=======
 #![allow(clippy::empty_drop)]
->>>>>>> 65410f6af (fix all the tests i broke)
 
 struct Droppable;
 
