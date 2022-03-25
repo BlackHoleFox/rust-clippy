@@ -127,6 +127,7 @@ store.register_lints(&[
     drop_forget_ref::FORGET_REF,
     duration_subsec::DURATION_SUBSEC,
     else_if_without_else::ELSE_IF_WITHOUT_ELSE,
+    empty_drop::EMPTY_DROP,
     empty_enum::EMPTY_ENUM,
     entry::MAP_ENTRY,
     enum_clike::ENUM_CLIKE_UNPORTABLE_VARIANT,

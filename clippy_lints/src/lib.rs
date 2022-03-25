@@ -207,6 +207,7 @@ mod double_parens;
 mod drop_forget_ref;
 mod duration_subsec;
 mod else_if_without_else;
+mod empty_drop;
 mod empty_enum;
 mod entry;
 mod enum_clike;
@@ -867,6 +868,7 @@ pub fn register_plugins(store: &mut rustc_lint::LintStore, sess: &Session, conf:
             ignore_publish: cargo_ignore_publish,
         })
     });
+    store.register_late_pass(|| Box::new(empty_drop::EmptyDrop));
     // add lints here, do not remove this comment, it's used in `new_lint`
 }
 
