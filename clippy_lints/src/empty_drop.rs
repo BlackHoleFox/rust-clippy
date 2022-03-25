@@ -10,7 +10,8 @@ declare_clippy_lint! {
     /// Checks for empty `Drop` implementations.
     ///
     /// ### Why is this bad?
-    /// Empty `Drop` implementations have no effect when dropping an instance of the type. They are most likely useless. However, an empty `Drop` implementation prevents a type from being destructured, which might be the intention behind adding the implementation as a marker.
+    /// Empty `Drop` implementations have no effect when dropping an instance of the type. They are most likely useless.
+    /// However, an empty `Drop` implementation prevents a type from being destructured, which might be the intention behind adding the implementation as a marker.
     ///
     /// ### Example
     /// ```rust
@@ -48,7 +49,6 @@ impl LateLintPass<'_> for EmptyDrop {
             if let ExprKind::Block(block, _) = func_expr.kind;
             if block.stmts.is_empty() && block.expr.is_none();
             then {
-                // span_lint_and_help(cx, EMPTY_DROP, item.span, "empty drop implementation", None, "try removing this impl");
                 span_lint_and_sugg(cx, EMPTY_DROP, item.span, "empty drop implementation", "try removing this impl", String::new(), Applicability::MaybeIncorrect);
             }
         }
