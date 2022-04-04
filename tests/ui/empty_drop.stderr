@@ -12,7 +12,9 @@ error: empty drop implementation
   --> $DIR/empty_drop.rs:24:1
    |
 LL | / impl Drop for Baz {
-LL | |     fn drop(&mut self) {{}}
+LL | |     fn drop(&mut self) {
+LL | |         {}
+LL | |     }
 LL | | }
    | |_^ help: try removing this impl
 

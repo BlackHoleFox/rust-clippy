@@ -22,10 +22,9 @@ impl Drop for Bar {
 struct Baz;
 
 impl Drop for Baz {
-    fn drop(&mut self) {{}}
+    fn drop(&mut self) {
+        {}
+    }
 }
 
-fn main() {
-    let s = Foo;
-    // s goes out of scope.
-}
+fn main() {}
