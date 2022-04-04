@@ -1,5 +1,6 @@
 // error-pattern:cargo-clippy
 
+#![feature(array_windows)]
 #![feature(binary_heap_into_iter_sorted)]
 #![feature(box_patterns)]
 #![feature(control_flow_enum)]
@@ -23,6 +24,7 @@
 
 // FIXME: switch to something more ergonomic here, once available.
 // (Currently there is no way to opt into sysroot crates without `extern crate`.)
+extern crate rustc_arena;
 extern crate rustc_ast;
 extern crate rustc_ast_pretty;
 extern crate rustc_attr;
@@ -189,6 +191,7 @@ mod collapsible_match;
 mod comparison_chain;
 mod copies;
 mod copy_iterator;
+mod crate_in_macro_def;
 mod create_dir;
 mod dbg_macro;
 mod default;
@@ -208,6 +211,7 @@ mod duration_subsec;
 mod else_if_without_else;
 mod empty_drop;
 mod empty_enum;
+mod empty_structs_with_brackets;
 mod entry;
 mod enum_clike;
 mod enum_variants;
@@ -847,7 +851,7 @@ pub fn register_plugins(store: &mut rustc_lint::LintStore, sess: &Session, conf:
             enable_raw_pointer_heuristic_for_send,
         ))
     });
-    store.register_late_pass(move || Box::new(undocumented_unsafe_blocks::UndocumentedUnsafeBlocks::default()));
+    store.register_late_pass(move || Box::new(undocumented_unsafe_blocks::UndocumentedUnsafeBlocks));
     store.register_late_pass(|| Box::new(match_str_case_mismatch::MatchStrCaseMismatch));
     store.register_late_pass(move || Box::new(format_args::FormatArgs));
     store.register_late_pass(|| Box::new(trailing_empty_array::TrailingEmptyArray));
@@ -868,6 +872,8 @@ pub fn register_plugins(store: &mut rustc_lint::LintStore, sess: &Session, conf:
         })
     });
     store.register_late_pass(|| Box::new(empty_drop::EmptyDrop));
+    store.register_early_pass(|| Box::new(crate_in_macro_def::CrateInMacroDef));
+    store.register_early_pass(|| Box::new(empty_structs_with_brackets::EmptyStructsWithBrackets));
     // add lints here, do not remove this comment, it's used in `new_lint`
 }
 
