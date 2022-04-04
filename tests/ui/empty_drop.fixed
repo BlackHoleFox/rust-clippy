@@ -21,11 +21,4 @@ struct Baz;
 
 
 
-<<<<<<< HEAD
-fn main() {
-    let s = Foo;
-    // s goes out of scope.
-}
-=======
 fn main() {}
->>>>>>> a4978d27e777f4ee7cbc8e2755238d5b3b957c3d
