@@ -877,6 +877,7 @@ pub fn register_plugins(store: &mut rustc_lint::LintStore, sess: &Session, conf:
             ignore_publish: cargo_ignore_publish,
         })
     });
+    store.register_late_pass(|| Box::new(empty_drop::EmptyDrop));
     store.register_early_pass(|| Box::new(crate_in_macro_def::CrateInMacroDef));
     store.register_early_pass(|| Box::new(empty_structs_with_brackets::EmptyStructsWithBrackets));
     store.register_late_pass(|| Box::new(unnecessary_owned_empty_strings::UnnecessaryOwnedEmptyStrings));
